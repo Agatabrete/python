@@ -1,0 +1,119 @@
+#Agata Brete Jõpiselg
+#16.01
+import random 
+"""
+7. Eurokalkulaator - koosta programm, mis kalkuleerib valuuta vastavalt kasutaja soovile EUR->EEK vĆµi EEK->EUR.
+	kuvatakse korrektne arusaadav kĆ¼simus ja vastus - 1p
+	kuvatakse veateade, kui kasutaja tegi valiku valesti - 1p
+	kĆ¼sitakse valuuta kogust ja tehakse arvutused - 2p
+	kood kommenteeritud - 1p
+"""
+def eur_eek_kalk(euro_summa):
+    return euro_summa * 15.6466
+
+def eek_eur_kalk(eek_summa):
+    return eek_summa * 0.0639
+
+def main():
+    valik = input("Kas soovite teha konversiooni EUR->EEK või EEK->EUR? ")
+
+    if valik.upper() not in ['EUR->EEK', 'EEK->EUR']:
+        print("Vigane valik! Palun sisestage korrektne valik.")
+        return
+    
+    summa_str = input("Sisestage summa: ")
+
+    if not summa_str.replace('.', '', 1).isdigit():
+        print("Vigane sisend! Palun sisestage number. ")
+        return
+    
+    summa = float(summa_str)
+
+    tulemus = eur_eek_kalk(summa) if valik.upper() == 'EUR->EEK' else eek_eur_kalk(summa)
+    print(f"{summa} {'eurot' if valik.upper() == 'EUR->EEK' else 'krooni'} on umbes {tulemus:.2f} {'krooni' if valik.upper() == 'EUR->EEK' else 'eurot'}.")
+
+if __name__ == "__main__":
+    main()
+
+"""
+5. Shopping List
+	Create a program that will keep track of items for a shopping list. The program 
+    should keep asking for new items until nothing is entered (no input followed by enter/return key). 
+    The program should then display the full shopping list.
+
+"""
+def shopping_list():
+    ostunimekiri = []
+
+    while True:
+        ese = input("Sisesta ese ostunimekirja (vajuta Enter, kui lõpetanud): ")
+
+        if not ese:
+            break
+
+        ostunimekiri.append(ese)
+
+    return ostunimekiri
+
+nimekiri = shopping_list()
+
+print("Ostunimekiri :")
+for ese in nimekiri:
+    print(ese)
+
+
+
+"""
+3. Positiivsed ja negatiivsed
+	tee kaks loendit positiivsete ja negatiivsete arvude hoidmiseks 1p
+	kasutaja sisestab 5 arvu ja programm tuvastab, kumba loendisse selle lisab 2p
+	nulli lisamisel ei tehta midagi 1p
+	vĆ¤ljasta mĆµlemad loendit 1p
+"""
+
+def loendid():
+    pos = []
+    neg = []
+
+    for i in range(5):
+        arv = float(input("Sisesta arv: "))
+
+        if arv > 0:
+            pos.append(arv)
+        elif arv < 0:
+            neg.append(arv)
+
+    return pos, neg
+
+pos_arvud, neg_arvud = loendid()
+
+print("Positiivsed arvud:", pos_arvud)
+print("Negatiivsed arvud:", neg_arvud)
+
+
+
+"""
+1. Korrutamise kontrollimine
+	programm esitab korrutustehte 1p
+	ootab kasutajalt vastuse sisestamist 1p
+	kontrollib vastuse Ćµigsust 1p
+	vĆ¤ljastab, kas vastus oli Ćµige vĆµi vĆ¤Ć¤r. 1p
+	kokku antakse lahendamiseks 10 Ć¼lesannet. 1p
+"""
+
+def korrutamine():
+
+
+    for i in range(10):
+        a, b = random.randint(1, 10), random.randint(1, 10)
+        tehe = f"{a} * {b}"
+        vastus = input(f"Ülesanne: {tehe} = ")
+
+        if int(vastus) == a * b:
+            print("Õige!")
+            
+        else:
+            print(f"Vale1Õige vastus oli {a} * {b}.")
+
+if __name__ == "__main__":
+    korrutamine()
