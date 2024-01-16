@@ -1,0 +1,59 @@
+#agata
+import winsound
+import random
+
+#1
+def aratus(nr):
+    for i in range(nr):
+        winsound.Beep(2500,200)
+        print("tõuse ja sära!")
+#2
+def porgandid(r):
+    joostud_ringid = 0
+    porgandid = 0
+    while joostud_ringid < r:
+        joostud_ringid+=1
+        if joostud_ringid%2==0:
+            porgandid+=joostud_ringid
+    print(f"Jänku saab: {porgandid} porgandit!")
+
+#3
+
+def taringud(arv):
+    for i in range(arv):
+        print(random.randint(1,6))
+        
+
+#4
+
+
+def male(arv):
+    ruut = 1
+    nisuterad = 1
+    while ruut < arv:
+        nisuterad = nisuterad*2
+        ruut+=1   
+    print(nisuterad)
+    
+
+#5
+
+def lumevalgeke(p):
+    ounad = 14
+    for i in range(p):
+        pounad = random.randint(1,2)
+        ounad-=pounad   
+        print(pounad)
+    print(f"Lumivalgekesele jäi {ounad} õuna")
+
+
+
+lumevalgeke(6)
+
+#male(2)
+#kordused = int(input("Äratuse arv: "))
+#aratus(kordused)
+
+#ringid = int(input("Ringide arv: "))
+#porgandid(ringid)
+#taringud(6)
