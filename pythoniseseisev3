@@ -6,6 +6,6 @@ vastuvoetud = []
 for rida in fail:
     vastuvoetud.append(int(rida))
 
-
+ 
 print(vastuvoetud)
 fail.close()
